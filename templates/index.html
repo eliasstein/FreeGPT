@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- k1: CjqrdY7Dho26KS9ltvzj0l3TdJhKhNBpm031nJNL3BBjz3ZD6XKbcBn95LliXC7r -->
+<!-- k2: 6uvCYeTRhSjxT9pMXuOwvRAMqmf77G5MhOyjggLpmqiEDcoTyHHxidVFdsohVOxR -->
+
+<head>
+  <title>Free gpt</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href='{{url_for("static",filename="css/style.css")}}'>
+  <link rel="icon" type="image/x-icon" href='{{url_for("static",filename="img/logo.png")}}'
+</head>
+
+<body class="bg-black">
+
+
+  <main>
+
+
+    <div style="display: flex; height: 100vh;">
+      <div id="left-bar" class="bg-filter" style="width: 250px; height: 100%;"> <!--Barra izquierda-->
+        <div style="margin-top: 80px;">
+          <a >
+            <div class="left-buttons">
+              Free GPT
+            </div>
+          </a>
+        </div>
+        <a onclick="deleteCookies()">
+          <div class="left-buttons">
+            Borrar datos
+          </div>
+        </a>
+
+
+        <div style="margin: 10px;">
+          <p>Dia</p>
+          <ul>
+            <li>Esta es una conversacion de prueba</li>
+          </ul>
+        </div>
+      </div>
+      <div style="width: 100%;"> <!--Lado derecho-->
+        <div> <!--Titulo-->
+          <!-- <h1 style="text-align: center;">Free gpt</h1> -->
+          <h5 style="text-align: center;">
+            <img src='{{url_for("static",filename="img/freegpt.png")}}' width="150px">
+          </h5>
+
+        </div>
+        <div class="chatbox bg-filter"> <!--Chat-->
+          <ul id="chat">
+            <!-- <li>
+              <div class="ai-container">
+                <div>
+                  Soy una inteligencia artificial dispuesta a responder cualquier duda que tengas. Cuentame ¿que deseas
+                  saber?
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="human-container">
+                <div>
+                  Me encantaria saber cuanto es 2+2?
+                </div>
+              </div>
+            </li> -->
+          </ul>
+        </div>
+        <div class="text-area-container"> <!--Msgbox-->
+          <textarea id="text-box" placeholder="Me gustaria saber..."></textarea>
+          <a id="send-button" onclick="sendMessage()">
+            <img src='{{url_for("static",filename="img/send.svg")}}' width="50px">
+          </a>
+        </div>
+      </div>
+
+  </main>
+
+  <script src='{{url_for("static",filename="js/chatbox.js")}}'></script>
+</body>
+
+</html>
