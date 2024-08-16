@@ -18,7 +18,7 @@
 
 
     <div style="display: flex; height: 100vh;">
-      <div id="left-bar" class="bg-filter" style="width: 250px; height: 100%;"> <!--Barra izquierda-->
+      <div id="left-bar" class="bg-filter" style="width: 250px; height: 100%; display: none;"> <!--Barra izquierda-->
         <div style="margin-top: 80px;">
           <a >
             <div class="left-buttons">
@@ -43,6 +43,7 @@
       <div style="width: 100%;"> <!--Lado derecho-->
         <div> <!--Titulo-->
           <!-- <h1 style="text-align: center;">Free gpt</h1> -->
+          <button id="collapse-btn" style="height: 50px; position: absolute; border-radius: 30px;" onclick="openMenu()">Menu</button>
           <h5 style="text-align: center;">
             <img src='{{url_for("static",filename="img/freegpt.png")}}' width="150px">
           </h5>
