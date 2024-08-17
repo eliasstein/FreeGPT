@@ -79,7 +79,12 @@ function sendMessage() {                      //Funcion para enviar y recibir re
       })
     };
 
-    fetch("/gpt/sendMessage", options).then(res => res.json())//Enviamos el mensaje a la api y lo recibimos como json
+    fetch("/gpt/sendMessage", options).then(res => {    //Enviamos el mensaje a la api y lo recibimos como json
+      if (res.status==200)
+        return res.json();
+      AiResponse=true
+      return {"message":"AI: Hubo un error en el servidor y no pude responder su pregunta, intente nuevamente"};
+    })
       .then(response => {     //En caso de que la respuesta sea satisfactoria
         addMsgToChat(response["message"], false); //Añadimos el mensaje de la ia al chat
         AiResponse=true;                          //Decimos que la ia respondio
