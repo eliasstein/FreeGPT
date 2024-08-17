@@ -5,3 +5,5 @@ le añadí una interfaz visual para que todo el mundo lo pueda utilizarla sin re
 <div>
   <img src="git/images/chat.jpg">
 </div>
+
+<strong>Nota</strong>: FreeGPT depende de las cookies para poder mantener el historial de mensajes asi que puede tener problemas con navegadores como brave
