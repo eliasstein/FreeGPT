@@ -26,8 +26,8 @@ def send_message():
         if "token" in data and "messages" in data:   #Comprobamos si el json tiene las claves "token" y "messages"
             r=gpt.send_message(data["token"],data["messages"],request.cookies)   #Ejecutamos el request a la api clon de chatgpt
             response=make_response({"message":r["message"]})    #devolvemos la respuesta de la ia como resultado
-            for c in r["cookies"]:
-                response.set_cookie(c,r["cookies"][c])          #Añadimos las cookies a la respuesta
+            # for c in r["cookies"]:    #(DEPRECATED)
+            #     response.set_cookie(c,r["cookies"][c])          #Añadimos las cookies a la respuesta
             return response
         return "ERROR",500
     return "ERROR",500

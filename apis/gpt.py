@@ -41,20 +41,23 @@ def send_message(token,msg,cookies):
 
     NONCE = token                                               #Key
     URL="https://chatgpti.info/wp-admin/admin-ajax.php"         #URL a la que haremos la peticion
+    payload["action"]="wpaicg_chat_shortcode_message"           #Send message action
     payload["_wpnonce"]=NONCE                                   #KEY
     payload["message"]=msg[len(msg)-1]                          #Ultimo mensaje enviado
-    payload["post_id"]=payload["post_id"]+1                     #Id del mensaje +1
-    payload["wpaicg_chat_history"].append(f"{msg}")             #Historial de mensajes
+    payload["post_id"]=payload["post_id"]+1                     #Id del mensaje +1  (DEPRECATED)
+    payload["wpaicg_chat_history"].append(f"{msg}")             #Historial de mensajes  
     r=requests.post(URL,headers=headers,params=payload,cookies=cookies) #Request a la api
     cookie={}
     if r.status_code==200:
-        #print(r.headers.get("set-cookie"))
-        for i in range(len(r.headers.get("set-cookie").split("secure, "))):
-            k=r.headers.get("set-cookie").split("secure, ")[i].split(";")[0].split("=")[0]
-            c=r.headers.get("set-cookie").split("secure, ")[i].split(";")[0].split("=")[1]
-            cookie[k]=c
+        #print(r.content)
+        # La pagina ya no funciona con cookies
+        # for i in range(len(r.headers.get("set-cookie").split("secure, "))):
+        #     k=r.headers.get("set-cookie").split("secure, ")[i].split(";")[0].split("=")[0]
+        #     c=r.headers.get("set-cookie").split("secure, ")[i].split(";")[0].split("=")[1]
+        #     cookie[k]=c
         payload["wpaicg_chat_history"].append(f"AI: {r.json()["data"]}")#Añadimos mensajes al array
-        return {"message":f"AI: {r.json()["data"]}",
-                "cookies":cookie}
+        # return {"message":f"AI: {r.json()["data"]}",
+        #         "cookies":cookie}
+        return {"message":f"AI: {r.json()["data"]}"}
     else:
         return "ERROR"
